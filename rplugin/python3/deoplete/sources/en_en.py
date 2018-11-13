@@ -16,7 +16,7 @@ class Source(Base):
         self.words = self.dict.keys()
 
     def gather_candidates(self, context):
-        prefix = context['complete_str']
+        prefix = context['complete_str'].lower()
         words = filter(lambda w: w.startswith(prefix), self.words)
         return  [
                 {'word': w, 'info': self.dict[w]['description']} for w in words
